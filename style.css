@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin: 0;
+    padding: 0;
+}
+
+.app-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 40px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 6px;
+}
+
+h1 {
+    text-align: center;
+}
+
+form input,
+form textarea,
+form button {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+form button {
+    background: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.filters {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px 0;
+}
+
+.filters button {
+    padding: 6px 10px;
+    cursor: pointer;
+}
+
+.task {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.task.completed {
+    background: #e0ffe0;
+    text-decoration: line-through;
+}
+
+.task button {
+    margin-right: 5px;
+}
