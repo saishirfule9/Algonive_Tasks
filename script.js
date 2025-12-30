@@ -1,31 +1,3 @@
-let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-let currentFilter = "all";
-
-document.getElementById("taskForm").addEventListener("submit", function (e) {
-    e.preventDefault();
-
-    const title = document.getElementById("title").value;
-    const description = document.getElementById("description").value;
-    const dueDate = document.getElementById("dueDate").value;
-
-    const task = {
-        id: Date.now(),
-        title,
-        description,
-        dueDate,
-        completed: false
-    };
-
-    tasks.push(task);
-    saveTasks();
-    displayTasks();
-    this.reset();
-});
-
-function saveTasks() {
-    localStorage.setItem("tasks", JSON.stringify(tasks));
-}
-
 function displayTasks() {
     const taskList = document.getElementById("taskList");
     taskList.innerHTML = "";
@@ -54,6 +26,7 @@ function displayTasks() {
             <button onclick="toggleTask(${task.id})">
                 ${task.completed ? "Undo" : "Complete"}
             </button>
+            <button onclick="editTask(${task.id})">Edit</button>
             <button onclick="deleteTask(${task.id})">Delete</button>
         `;
 
@@ -61,23 +34,15 @@ function displayTasks() {
     });
 }
 
-function toggleTask(id) {
-    tasks = tasks.map(task =>
-        task.id === id ? { ...task, completed: !task.completed } : task
-    );
+
+function editTask(id) {
+    const task = tasks.find(t => t.id === id);
+
+    document.getElementById("title").value = task.title;
+    document.getElementById("description").value = task.description;
+    document.getElementById("dueDate").value = task.dueDate;
+
+    tasks = tasks.filter(t => t.id !== id);
     saveTasks();
     displayTasks();
 }
-
-function deleteTask(id) {
-    tasks = tasks.filter(task => task.id !== id);
-    saveTasks();
-    displayTasks();
-}
-
-function filterTasks(type) {
-    currentFilter = type;
-    displayTasks();
-}
-
-displayTasks();
