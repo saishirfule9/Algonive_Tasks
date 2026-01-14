@@ -8,6 +8,7 @@ The Task Manager application allows users to manage their daily tasks efficientl
 
 
 
+
 ## Features
 - Add tasks with title, description, and due date  
 - Edit existing tasks  
