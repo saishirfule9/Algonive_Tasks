@@ -2,7 +2,7 @@
 
 This project is developed as part of the **Algonive Web Development Internship**.  
 It is a simple and user friendly task management system built using core web technologies.
-
+das
 ## Overview
 The Task Manager application allows users to manage their daily tasks efficiently. Users can add tasks with deadlines, update task details, track progress, and store data persistently using browser local storage.
 
